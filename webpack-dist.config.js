@@ -96,10 +96,10 @@ module.exports = {
     }),
     new EndWebpackPlugin(async () => {
       // 自定义域名
-      fs.writeFileSync(
-        path.resolve(outputPath, 'CNAME'),
-        'https://anhengchangyua.github.io/resume'
-      )
+      // fs.writeFileSync(
+      //   path.resolve(outputPath, 'CNAME'),
+      //   'https://anhengchangyua.github.io/resume'
+      // )
 
       await publishGhPages()
 
@@ -108,8 +108,8 @@ module.exports = {
       spawnSync(chromePath, [
         '--headless',
         '--disable-gpu',
-        `--print-to-pdf=${path.resolve(outputPath, 'resume.pdf')}`,
-        'https://anhengchangyua.github.io/resume' // 这里注意改成你的在线简历的网站
+        `--print-to-pdf=${path.resolve(outputPath, 'resume.pdf')}`
+        // 'https://anhengchangyua.github.io/resume' // 这里注意改成你的在线简历的网站
       ])
 
       // 重新发布到 ghpages
